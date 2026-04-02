@@ -40,16 +40,18 @@ void App::RunLoop() {
         camera.position.z = cosf(cameraAngle.x) * cosf(cameraAngle.y) * cameraRadius;
 
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        ClearBackground({ 18, 18, 24, 255 }); 
         BeginMode3D(camera);
+
+        DrawGrid(40, 1.0f);
 
         rubik.Draw();
 
         EndMode3D();
 
-        DrawText("3D Rubik's Cube", 10, 10, 20, DARKGRAY);
-        DrawText("- Left Click + Drag to view 360 degrees", 10, 40, 20, DARKGRAY);
-        DrawText("- Mouse Wheel to zoom in and out", 10, 60, 20, DARKGRAY);
+        DrawText("3D Rubik's Cube", 10, 10, 20, { 220, 220, 220, 255 });
+        DrawText("- Left Click + Drag to view 360 degrees", 10, 40, 16, { 160, 160, 160, 255 });
+        DrawText("- Mouse Wheel to zoom in and out", 10, 60, 16, { 160, 160, 160, 255 });
 
         EndDrawing();
     }
