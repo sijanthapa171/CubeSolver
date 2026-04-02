@@ -28,6 +28,8 @@ void App::RunLoop() {
             Vector2 delta = GetMouseDelta();
             cameraAngle.x -= delta.x * 0.01f;
             cameraAngle.y += delta.y * 0.01f;
+        } else {
+            cameraAngle.x -= 0.003f; 
         }
 
         if (cameraAngle.y > 1.5f) cameraAngle.y = 1.5f;
