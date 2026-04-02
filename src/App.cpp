@@ -53,6 +53,36 @@ void App::RunLoop() {
         DrawText("- Left Click + Drag to view 360 degrees", 10, 40, 16, { 160, 160, 160, 255 });
         DrawText("- Mouse Wheel to zoom in and out", 10, 60, 16, { 160, 160, 160, 255 });
 
+        // --- Top-right stats panel ---
+        {
+            int sw = GetScreenWidth();
+            int panelW = 230, panelH = 110, panelX = sw - panelW - 10, panelY = 10;
+            int fps = GetFPS();
+            bool autoRotating = !IsMouseButtonDown(MOUSE_BUTTON_LEFT);
+
+            DrawRectangle(panelX, panelY, panelW, panelH, { 0, 0, 0, 160 });
+            DrawRectangleLines(panelX, panelY, panelW, panelH, { 80, 80, 100, 200 });
+
+            Color fpsColor = (fps >= 55) ? (Color){ 80, 220, 80, 255 }
+                           : (fps >= 30) ? (Color){ 220, 180, 60, 255 }
+                                         : (Color){ 220, 60, 60, 255 };
+            DrawText(TextFormat("FPS: %d", fps),
+                     panelX + 10, panelY + 10, 18, fpsColor);
+
+            DrawText(TextFormat("Zoom:  %.1f", cameraRadius),
+                     panelX + 10, panelY + 34, 15, { 180, 200, 255, 255 });
+            DrawText(TextFormat("Yaw:   %.1f deg", cameraAngle.x * (180.0f / PI)),
+                     panelX + 10, panelY + 56, 15, { 180, 200, 255, 255 });
+            DrawText(TextFormat("Pitch: %.1f deg", cameraAngle.y * (180.0f / PI)),
+                     panelX + 10, panelY + 78, 15, { 180, 200, 255, 255 });
+
+            Color dotColor = autoRotating ? (Color){ 80, 220, 80, 255 }
+                                          : (Color){ 220, 60, 60, 255 };
+            DrawCircle(panelX + panelW - 18, panelY + 12, 6, dotColor);
+            DrawText(autoRotating ? "Auto-Rotate" : "Manual", 
+                     panelX + panelW - 100, panelY + 92, 13, { 160, 160, 160, 255 });
+        }
+
         EndDrawing();
     }
 }
