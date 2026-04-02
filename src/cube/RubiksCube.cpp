@@ -1,5 +1,5 @@
-#include "RubiksCube.h"
-#include "Cubie.h"
+#include "cube/RubiksCube.h"
+#include "cube/Cubie.h"
 #include <math.h>
 
 RubiksCube::RubiksCube() : 

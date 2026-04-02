@@ -1,5 +1,5 @@
-#include "App.h"
-#include "../ui/StatsPanel.h"
+#include "core/App.h"
+#include "ui/StatsPanel.h"
 #include <math.h>
 
 App::App() :

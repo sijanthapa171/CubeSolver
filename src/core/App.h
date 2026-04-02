@@ -1,6 +1,6 @@
 #pragma once
 #include "raylib.h"
-#include "../cube/RubiksCube.h"
+#include "cube/RubiksCube.h"
 
 class App {
 public:

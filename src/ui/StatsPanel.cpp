@@ -1,4 +1,4 @@
-#include "StatsPanel.h"
+#include "ui/StatsPanel.h"
 #include <math.h>
 #include <fstream>
 #include <string>

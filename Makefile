@@ -1,5 +1,5 @@
 CXX      ?= g++
-CXXFLAGS  = -O2 $(shell pkg-config --cflags raylib)
+CXXFLAGS  = -O2 $(shell pkg-config --cflags raylib) -Isrc
 LDFLAGS   = $(shell pkg-config --libs raylib)
 TARGET    = 3d-cube
 

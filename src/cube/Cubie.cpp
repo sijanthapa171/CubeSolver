@@ -1,4 +1,4 @@
-#include "Cubie.h"
+#include "cube/Cubie.h"
 #include "rlgl.h"
 
 void DrawCubie(Matrix transform, float size,
